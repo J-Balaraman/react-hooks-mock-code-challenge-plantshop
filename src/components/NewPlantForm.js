@@ -13,7 +13,6 @@ function NewPlantForm({onAddPlant}) {
       price: price,
     };
     
-    // Submit the data to your API
     fetch("http://localhost:6001/plants", {
       method: "POST",
       headers: {

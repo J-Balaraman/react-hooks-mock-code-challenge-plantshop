@@ -5,21 +5,18 @@ import Search from "./Search";
 
 function PlantPage() {
   const [plants, setPlants] = useState([]);
-  const [filteredPlants, setFilteredPlants] = useState([]); // Maintain filtered list
+  const [filteredPlants, setFilteredPlants] = useState([]);
 
-  // Fetch the initial list of plants when the component mounts
   useEffect(() => {
     fetch("http://localhost:6001/plants")
       .then((res) => res.json())
       .then((data) => {
         setPlants(data);
-        setFilteredPlants(data); // Initialize filtered list with all plants
+        setFilteredPlants(data);
       });
   }, []);
 
-  // Search callback function
   function handleSearch(query) {
-    // Filter the list of plants based on the search query
     const filtered = plants.filter((plant) =>
       plant.name.toLowerCase().includes(query.toLowerCase())
     );

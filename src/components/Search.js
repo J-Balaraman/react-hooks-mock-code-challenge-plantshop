@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 
 function Search({ onSearch }) {
-  const [searchInput, setSearchInput] = useState(""); // Maintain search input state
+  const [searchInput, setSearchInput] = useState("");
 
   function handleInputChange(e) {
     const value = e.target.value;
     setSearchInput(value);
-    // Call the search callback with the current search input value
     onSearch(value);
   }
 
